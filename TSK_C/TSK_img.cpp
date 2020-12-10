@@ -7,12 +7,12 @@
 void img_open(const char* path)
 {
 	printf(path);
-	char* EO1s[2] = { "C:\\Users\\Matthew\\Desktop\\EO1\\_SOFEX_DOMEX_EX26.2_4GB_MICROSD.E01", "C:\\Users\\Matthew\\Desktop\\EO1\\_SOFEX_DOMEX_EX26.2_4GB_MICROSD.E02" };
-	char* EO1[1] = { "C:\\Users\\Matthew\\Desktop\\EO1\\_SOFEX_DOMEX_EX26.2_4GB_MICROSD.E01" };
+	//wchar_t message[65] = L"C:\\Users\\Matthew\\Desktop\\EO1\\_SOFEX_DOMEX_EX26.2_4GB_MICROSD.E01";
+	TSK_TCHAR* const EO1s[2] = { L"C:\\Users\\Matthew\\Desktop\\EO1\\_SOFEX_DOMEX_EX26.2_4GB_MICROSD.E01"};
+	//char* const EO1[1] = { "C:\\Users\\Matthew\\Desktop\\EO1\\_SOFEX_DOMEX_EX26.2_4GB_MICROSD.E01" };
 	
-	TSK_IMG_INFO* img = tsk_img_open(1, &EO1, TSK_IMG_TYPE_DETECT, 0);
-	//TSK_IMG_INFO* img = tsk_img_open(2, EO1s, TSK_IMG_TYPE_DETECT, 0);
-	printf(tsk_error_get());
+	TSK_IMG_INFO* img = tsk_img_open(1, EO1s, TSK_IMG_TYPE_DETECT, 0);
+	printf(img->size);
 	printf(tsk_error_get_errstr());
 	printf(tsk_error_get_errstr2());
 
